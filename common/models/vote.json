@@ -1,0 +1,60 @@
+{
+  "name": "Vote",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Is-Yes": {
+      "type": "boolean"
+    },
+    "VoteCatId": {
+      "type": "number"
+    },
+    "PlaceId": {
+      "type": "number"
+    },
+    "DateAdded": {
+      "type": "date"
+    },
+    "DateModified": {
+      "type": "date"
+    },
+    "UserId": {
+      "type": "number"
+    },
+    "Id": {
+      "type": "number",
+      "id": true,
+      "required": true,
+      "index": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "app-user": {
+      "type": "belongsTo",
+      "model": "AppUser",
+      "foreignKey": "UserId"
+    },
+    "place": {
+      "type": "belongsTo",
+      "model": "Place",
+      "foreignKey": "PlaceId"
+    },
+    "users": {
+      "type": "belongsTo",
+      "model": "AppUser",
+      "foreignKey": "UserId"
+    },
+    "vote-category": {
+      "type": "belongsTo",
+      "model": "VoteCategory",
+      "foreignKey": "VoteCatId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,36 @@
+{
+  "name": "VoteCategory",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "AttributeName": {
+      "type": "string"
+    },
+    "Id": {
+      "type": "number",
+      "id": true,
+      "required": true,
+      "index": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "places": {
+      "type": "hasMany",
+      "model": "Place",
+      "foreignKey": "VoteCatId",
+      "through": "Vote"
+    },
+    "votes": {
+      "type": "hasMany",
+      "model": "Vote",
+      "foreignKey": "VoteCatId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

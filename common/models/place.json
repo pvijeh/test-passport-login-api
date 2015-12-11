@@ -1,0 +1,59 @@
+{
+  "name": "Place",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Name": {
+      "type": "string"
+    },
+    "Id": {
+      "type": "number",
+      "id": true,
+      "required": true,
+      "index": true
+    },
+    "GooglePlacesId": {
+      "type": "string"
+    },
+    "Category": {
+      "type": "string"
+    },
+    "Neighborhood": {
+      "type": "string"
+    },
+    "Address": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "users": {
+      "type": "hasMany",
+      "model": "AppUser",
+      "foreignKey": "PlaceId",
+      "through": "Vote"
+    },
+    "votes": {
+      "type": "hasMany",
+      "model": "Vote",
+      "foreignKey": "PlaceId"
+    },
+    "vote-category": {
+      "type": "hasMany",
+      "model": "VoteCategory",
+      "foreignKey": "PlaceId",
+      "through": "Vote"
+    },
+    "assets": {
+      "type": "hasMany",
+      "model": "Asset",
+      "foreignKey": "PlaceId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

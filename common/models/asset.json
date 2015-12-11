@@ -1,0 +1,51 @@
+{
+  "name": "Asset",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Id": {
+      "type": "number",
+      "id": true,
+      "required": true,
+      "index": true
+    },
+    "PlaceId": {
+      "type": "number"
+    },
+    "AssetUrl": {
+      "type": "string"
+    },
+    "SourceUrl": {
+      "type": "string"
+    },
+    "Credit": {
+      "type": "string"
+    },
+    "Alt": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "Width": {
+      "type": "number"
+    },
+    "Height": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "place": {
+      "type": "belongsTo",
+      "model": "Place",
+      "foreignKey": "PlaceId"
+    }
+    },
+  "acls": [],
+  "methods": {}
+}
